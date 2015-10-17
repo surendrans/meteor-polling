@@ -1,14 +1,31 @@
 <head>
-  <title>Spritle polling</title>
+	<title>Spritle polling</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+	<h1>Polling !</h1>
 
-  {{> hello}}
+      <form class="new-question">
+        <input type="text" name="text" placeholder="Type to add new question" />
+      </form>
+	<ul>
+	{{#each questions}}
+		{{> question}}
+
+	{{/each}}
+	</ul>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="question">
+	<li>
+		{{text}}
+			<ul>
+			{{#each options}}
+				<li>
+					{{this}}
+				</li>
+				{{/each}}
+			</ul>
+		</li>
 </template>
+
